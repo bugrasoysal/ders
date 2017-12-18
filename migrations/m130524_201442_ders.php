@@ -13,23 +13,14 @@ class m130524_201442_ders extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%ders}}', [
-            'id' => $this->int(11)->primaryKey(),
+        $this->createTable('{{%derss}}', [
+            'id' => $this->primaryKey(),
             'ad' => $this->varchar(15)->notNull(),
 			'icerik' => $this->text()->notNull(),          
         ], $tableOptions);
 
-        $this->createIndex(
-            'idx_ders_data_ders_id-1',
-            'sample_data',
-            'sample_id'
-        );
-
-        $this->addForeignKey(
-          'fk_ders_data_ders_id-1',
-          'ders_data',
-          'ders_id',
-          'ders',
+        $this->addForeignKey(          
+          'derss',
           'id'
         );
 
@@ -37,9 +28,7 @@ class m130524_201442_ders extends Migration
 
     public function down()
     {
-        $this->dropForeignKey('fk_ders_data_ders_id-1','ders_data');
-        $this->dropIndex('idx_sample_data_sample_id-1','ders_data');
-        $this->dropTable('{{%ders_data}}');
+        $this->dropForeignKey('derss','id');       
         $this->dropTable('{{%derss}}');
     }
 }
