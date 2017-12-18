@@ -3,7 +3,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m130524_201442_sample extends Migration
+class m130524_201442_ders extends Migration
 {
     public function up()
     {
@@ -13,17 +13,10 @@ class m130524_201442_sample extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%samples}}', [
-            'id' => $this->primaryKey(),
-            'title' => $this->string(200)->notNull(),
-			'description' => $this->text()->notNull(),
-            'picture' => $this->text(),
-        ], $tableOptions);
-
-        $this->createTable('{{%sample_data}}', [
-            'id' => $this->primaryKey(),
-            'name' => $this->string(255)->notNull(),
-            'sample_id' => $this->integer(11)->notNull(),
+        $this->createTable('{{%ders}}', [
+            'id' => $this->int(11)->primaryKey(),
+            'ad' => $this->varchar(15)->notNull(),
+			'icerik' => $this->text()->notNull(),          
         ], $tableOptions);
 
         $this->createIndex(
