@@ -20,16 +20,16 @@ class m130524_201442_ders extends Migration
         ], $tableOptions);
 
         $this->createIndex(
-            'idx_sample_data_sample_id-1',
+            'idx_ders_data_ders_id-1',
             'sample_data',
             'sample_id'
         );
 
         $this->addForeignKey(
-          'fk_sample_data_sample_id-1',
-          'sample_data',
-          'sample_id',
-          'samples',
+          'fk_ders_data_ders_id-1',
+          'ders_data',
+          'ders_id',
+          'ders',
           'id'
         );
 
@@ -37,9 +37,9 @@ class m130524_201442_ders extends Migration
 
     public function down()
     {
-        $this->dropForeignKey('fk_sample_data_sample_id-1','sample_data');
-        $this->dropIndex('idx_sample_data_sample_id-1','sample_data');
-        $this->dropTable('{{%sample_data}}');
-        $this->dropTable('{{%samples}}');
+        $this->dropForeignKey('fk_ders_data_ders_id-1','ders_data');
+        $this->dropIndex('idx_sample_data_sample_id-1','ders_data');
+        $this->dropTable('{{%ders_data}}');
+        $this->dropTable('{{%derss}}');
     }
 }
