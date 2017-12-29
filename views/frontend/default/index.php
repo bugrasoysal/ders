@@ -1,15 +1,59 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = 'WYP Sample Application';
+$this->title = 'WYP Ders Application';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Kou Osl Yii2 App - Frontend</h1>
 
-        <p class="lead">Örnek uygulamayı başarılı bir şekilde çalıştırdınız.</p>
+<!-- Codes by HTML.am -->
 
-        <p><a class="btn btn-lg btn-success" href="#">Modüller ve konfürgasyon!</a></p>
-    </div>
+<!-- CSS Code -->
+<style type="text/css" scoped>
+table.GeneratedTable {
+width:50%;
+background-color:#FFFFFF;
+border-collapse:collapse;border-width:1px;
+border-color:#000000;
+border-style:solid;
+color:#000000;
+}
 
-</div>
+table.GeneratedTable td, table.GeneratedTable th {
+border-width:1px;
+border-color:#000000;
+border-style:solid;
+padding:6px;
+}
+
+table.GeneratedTable thead {
+background-color:#6666FF;
+}
+</style>
+
+<!-- HTML Code -->
+<table class="GeneratedTable">
+<thead>
+<tr>
+<th>Dersler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matematik 1</td>
+</tr>
+<tr>
+<td>Fizik 1</td>
+</tr>
+<tr>
+<td>Türkçe 1</td>
+</tr>
+
+
+
+</tr>
+</tbody>
+</table>
+<br>
+ Ders Ekle:
+ <input type="text" name="ders">
+ <input type="submit" value="Ekle">
+ 
