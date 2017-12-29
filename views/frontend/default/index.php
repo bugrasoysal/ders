@@ -1,11 +1,21 @@
+
 <?php
 /* @var $this yii\web\View */
 $this->title = 'WYP Ders Application';
+use kouosl\ders\controllers\backend\DerssController;
+use kouosl\ders\controllers\frontend\DefaultController;
+use kouosl\ders\models\Derss;
+use kouosl\ders\models\DerssSearch;
+
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<!-- CSS Code -->
+
+<div class="site-index">
+
+
+	
 <style type="text/css" scoped>
 table.GeneratedTable {
 width:50%;
@@ -26,8 +36,9 @@ background-color:#6666FF;
 }
 </style>
 
-<!-- HTML Code -->
-
+<?php
+$sql=Yii::$app->db->createCommand("select ad from derss")->query();
+?>
 
 <br>
 <table class="GeneratedTable" id="myTable">
@@ -53,24 +64,42 @@ background-color:#6666FF;
 </tbody>
 </table>
 <br>
-<div 
-<p>Dersler: <input type="text" id="ders"></p>
 
-</div>
-<input type="button" value="Ekle" onClick="addRow()" border=0       style='cursor:hand'>
+
+Ders:
+<form action="" method="post">
+<input id="numb" name='derss' type="text">
+<input type="submit" name='submit' onclick="addRow()"></input>
 <input type="button" value="Sil" onClick='deleteRow()' border=0    style='cursor:hand'>
+</form>
+
+
+
+ <?php
+  
+    if(isset($_POST['submit']))
+	{
+		 $val=$_POST['derss'];
+	     Yii::$app->db->createCommand()->insert('derss', ['id'=>'3','ad'=>'c','icerik'=>'c'])->execute();
+	}
+  
+ ?>
+
+
+
 
 
 
 <SCRIPT language="javascript">
 
+ function addRow(){
 
-var ders=$scope.name;
-function addRow(){
+ var x;
+ x = document.getElementById("numb").value;
  var table = document.getElementById("myTable");
  var row = table.insertRow(-1);
  var cell1 = row.insertCell(-1);
- cell1.innerHTML =ders ;
+ cell1.innerHTML = x ;
 }
 
 function deleteRow() {
@@ -79,3 +108,6 @@ function deleteRow() {
 }
 
 </script>
+
+</div>
+
